@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8716B6BE-13D0-48E4-8EE2-21E173CC981A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PlayerHaters</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA9EB691DD2F9CAE8B89AC9C7BAE1490DD0385DF</key>
+		<string>https://github.com/team-manager-group-2/iOS_teams.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PlayerHaters/PlayerHaters.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA9EB691DD2F9CAE8B89AC9C7BAE1490DD0385DF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/team-manager-group-2/iOS_teams.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA9EB691DD2F9CAE8B89AC9C7BAE1490DD0385DF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA9EB691DD2F9CAE8B89AC9C7BAE1490DD0385DF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS_teams</string>
+		</dict>
+	</array>
+</dict>
+</plist>
