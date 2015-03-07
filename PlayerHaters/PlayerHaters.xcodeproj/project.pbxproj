@@ -20,6 +20,7 @@
 		D80E30CE1AAA969700FDB4B9 /* ScheduleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E30CD1AAA969700FDB4B9 /* ScheduleTVC.swift */; };
 		D80E30D01AAA99A800FDB4B9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E30CF1AAA99A800FDB4B9 /* LoginVC.swift */; };
 		D80E30D21AAA9C5200FDB4B9 /* CustomButtonOrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E30D11AAA9C5200FDB4B9 /* CustomButtonOrView.swift */; };
+		D89A52C51AAAC2BE0077ABA0 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A52C41AAAC2BE0077ABA0 /* AppData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D80E30CD1AAA969700FDB4B9 /* ScheduleTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTVC.swift; sourceTree = "<group>"; };
 		D80E30CF1AAA99A800FDB4B9 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D80E30D11AAA9C5200FDB4B9 /* CustomButtonOrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonOrView.swift; sourceTree = "<group>"; };
+		D89A52C41AAAC2BE0077ABA0 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		D80E30BE1AAA957900FDB4B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D89A52C41AAAC2BE0077ABA0 /* AppData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				D80E30D01AAA99A800FDB4B9 /* LoginVC.swift in Sources */,
 				D80E30CE1AAA969700FDB4B9 /* ScheduleTVC.swift in Sources */,
 				D80E309F1AAA91E800FDB4B9 /* AppDelegate.swift in Sources */,
+				D89A52C51AAAC2BE0077ABA0 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +461,7 @@
 				D80E30BA1AAA91E800FDB4B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D80E30BB1AAA91E800FDB4B9 /* Build configuration list for PBXNativeTarget "PlayerHatersTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +470,7 @@
 				D80E30BD1AAA91E800FDB4B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

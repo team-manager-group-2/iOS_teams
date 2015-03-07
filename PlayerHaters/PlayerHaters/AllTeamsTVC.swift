@@ -10,14 +10,14 @@ import UIKit
 
 class AllTeamsTVC: UITableViewController {
 
+    var allTeams = ["":""]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,24 +30,38 @@ class AllTeamsTVC: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return allTeams.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("allTeamsCell", forIndexPath: indexPath) as UITableViewCell
 
-        // Configure the cell...
-
+        // set title labels to team name and either a) coach name, or b) # of players
+//        cell.textLabel?.text = ""
+//        cell.detailTextLabel?.text = ""
+        
         return cell
     }
-    */
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // user selected a team, push the rosterTVC
+        
+        
+        let tabBarVC = self.storyboard?.instantiateViewControllerWithIdentifier("tabBarVC") as UITabBarController
+        
+        self.navigationController?.pushViewController(tabBarVC, animated: true)
+        
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
