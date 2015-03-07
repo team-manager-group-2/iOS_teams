@@ -21,8 +21,6 @@ class NewTeamTVC: UITableViewController {
         println("Creating new team...")
         
         // connect to API and singleton
-        
-        AppData.mainData().teamName = teamNameField.text
 
     }
     

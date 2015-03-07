@@ -815,8 +815,8 @@
                                         <constraint firstAttribute="height" constant="1" id="sR1-xc-DaX"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add this game / practice to the schedule." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-wt-ULC">
-                                    <rect key="frame" x="149" y="13" width="300" height="40.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this game / practice to the schedule." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-wt-ULC">
+                                    <rect key="frame" x="150" y="13" width="300" height="40.5"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60.5" id="FAo-7x-Rmw"/>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="egQ-Ou-1qw"/>
@@ -833,7 +833,7 @@
                                     </variation>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCv-vC-tmG" customClass="DesignableButton" customModule="PlayerHaters" customModuleProvider="target">
-                                    <rect key="frame" x="225" y="65.5" width="150" height="50"/>
+                                    <rect key="frame" x="225" y="65" width="150" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="e1Z-eB-MgW"/>
                                         <constraint firstAttribute="height" constant="50" id="u7r-kY-2WN"/>

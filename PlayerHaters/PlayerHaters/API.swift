@@ -103,8 +103,10 @@ private let _currentUser = User()
 
 class User {
     
-    // add username
+    // add email
     var email: String?
+    // add user id
+    var iD: Int?
     
     var token: String? {
         didSet {
@@ -145,13 +147,18 @@ class User {
         
         APIRequest.requestWithOptions(options, andCompletion: { (responseInfo) -> () in
             // do something after request is done
-            
-            if let userInfo = responseInfo["user"] as? [String:String] {
+
+            println(responseInfo)
+            if let userInfo = responseInfo["user"] as? [String:AnyObject] {
                 // set token
                 self.token = userInfo["authentication_token"] as String!
+                println(userInfo)
                 
                 // set email
                 self.email = userInfo["email"] as String!
+                
+                // set userID
+                self.iD = userInfo["id"] as Int!
                 
                 completion()
             }

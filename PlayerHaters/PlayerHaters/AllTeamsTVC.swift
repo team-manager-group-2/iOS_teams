@@ -10,10 +10,47 @@ import UIKit
 
 class AllTeamsTVC: UITableViewController {
 
-    var allTeams = ["":""]
+    var allTeams = [["":""]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allTeams = [
+        
+            [
+                "teamName":"MyCouchPullsOutButIDon't",
+                "sport":"Playin'",
+                "coachName":"Ole' Catfish Andy",
+                "homeField":"Decatur"
+            ],
+            [
+                "teamName":"BeatsByRay",
+                "sport":"Playin'",
+                "coachName":"Ole' Catfish Andy",
+                "homeField":"Decatur"
+            ],
+            [
+                "teamName":"StitchedBalls",
+                "sport":"Playin'",
+                "coachName":"Ole' Catfish Andy",
+                "homeField":"Decatur"
+            ],
+            [
+                "teamName":"MyCouchPullsOutButIDon't",
+                "sport":"Playin'",
+                "coachName":"Ole' Catfish Andy",
+                "homeField":"Decatur"
+            ],
+            [
+                "teamName":"MyCouchPullsOutButIDon't",
+                "sport":"Playin'",
+                "coachName":"Ole' Catfish Andy",
+                "homeField":"Decatur"
+            ]
+            
+        ]
+        
+        
         
     }
     
