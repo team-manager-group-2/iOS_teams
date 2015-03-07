@@ -21,7 +21,17 @@ class NewTeamTVC: UITableViewController {
         println("Creating new team...")
         
         // connect to API and singleton
-
+        
+        let newTeam = [
+            "teamName":teamNameField.text,
+            "sport":sportField.text,
+            "coachName":coachNameField.text,
+            "homeField":homeFieldField.text
+        ] as [String:String]
+        
+        AppData.mainData().allTeams.append(newTeam)
+        // new game is saved, go back to allTeamsTVC
+        navigationController?.popViewControllerAnimated(true)
     }
     
     

@@ -620,7 +620,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rosterCell" rowHeight="75" id="mma-Rx-4oA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rosterCell" rowHeight="75" id="mma-Rx-4oA" customClass="PlayerCell" customModule="PlayerHaters" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mma-Rx-4oA" id="HK5-yJ-oXr">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -653,6 +653,11 @@
                                         <constraint firstItem="2He-Uq-y1Q" firstAttribute="top" secondItem="tHL-if-py1" secondAttribute="bottom" constant="3" id="yuq-17-o9d"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="playerAgeLabel" destination="2He-Uq-y1Q" id="TJM-cG-Wo6"/>
+                                    <outlet property="playerNameLabel" destination="tHL-if-py1" id="Wib-RS-amd"/>
+                                    <outlet property="positionLabel" destination="9l8-JG-WZJ" id="GzM-hO-geO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -713,7 +718,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedule" id="Iph-j4-OuU">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="LSC-NV-SAk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="LSC-NV-SAk">
+                            <connections>
+                                <action selector="dismissVC:" destination="tDy-ZR-lq4" id="LhT-aQ-T0Z"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="j3A-1h-HXf">
                             <connections>
                                 <segue destination="8Fj-v8-9p2" kind="show" id="T7X-Ci-5Ar"/>

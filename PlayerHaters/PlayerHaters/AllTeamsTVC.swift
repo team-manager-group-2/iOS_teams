@@ -10,47 +10,10 @@ import UIKit
 
 class AllTeamsTVC: UITableViewController {
 
-    var allTeams = [["":""]]
+    var teams = [["":""]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        allTeams = [
-        
-            [
-                "teamName":"MyCouchPullsOutButIDon't",
-                "sport":"Playin'",
-                "coachName":"Ole' Catfish Andy",
-                "homeField":"Decatur"
-            ],
-            [
-                "teamName":"BeatsByRay",
-                "sport":"Playin'",
-                "coachName":"Ole' Catfish Andy",
-                "homeField":"Decatur"
-            ],
-            [
-                "teamName":"StitchedBalls",
-                "sport":"Playin'",
-                "coachName":"Ole' Catfish Andy",
-                "homeField":"Decatur"
-            ],
-            [
-                "teamName":"MyCouchPullsOutButIDon't",
-                "sport":"Playin'",
-                "coachName":"Ole' Catfish Andy",
-                "homeField":"Decatur"
-            ],
-            [
-                "teamName":"MyCouchPullsOutButIDon't",
-                "sport":"Playin'",
-                "coachName":"Ole' Catfish Andy",
-                "homeField":"Decatur"
-            ]
-            
-        ]
-        
-        
         
     }
     
@@ -58,6 +21,8 @@ class AllTeamsTVC: UITableViewController {
         
         checkIfLoggedIn()
         
+        teams = AppData.mainData().allTeams
+        tableView.reloadData()
     }
     
     func checkIfLoggedIn() {
@@ -110,7 +75,7 @@ class AllTeamsTVC: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return allTeams.count
+        return teams.count
     }
 
     
@@ -118,8 +83,11 @@ class AllTeamsTVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("allTeamsCell", forIndexPath: indexPath) as UITableViewCell
 
         // set title labels to team name and either a) coach name, or b) # of players
-//        cell.textLabel?.text = ""
-//        cell.detailTextLabel?.text = ""
+        let team = teams[indexPath.row]
+        let name = team["teamName"]
+        let coach = team["coachName"]
+        cell.textLabel?.text = name
+        cell.detailTextLabel?.text = "Coach \(coach!)"
         
         return cell
     }

@@ -22,9 +22,28 @@ class NewPlayerTVC: UITableViewController {
 
     }
     
+    func dateToAge() {
+        
+        let birthday = birthdayPicker.date
+//        let age = birthday.stringFromDate
+    }
+    
     
     @IBAction func addPlayer(sender: AnyObject) {
         
+        // add new player
+        
+        let newPlayer = [
+            "playerName":playerNameField.text,
+            "parent1":parent1Field.text,
+            "parent2":parent2Field.text,
+            "position":positionField.text,
+            "age":"12"
+            ] as [String:String]
+        
+        AppData.mainData().roster.append(newPlayer)
+        // new game is saved, go back to allTeamsTVC
+        navigationController?.popViewControllerAnimated(true)
         
     }
     

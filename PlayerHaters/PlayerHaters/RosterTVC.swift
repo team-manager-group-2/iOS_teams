@@ -9,10 +9,21 @@
 import UIKit
 
 class RosterTVC: UITableViewController {
-
+    
+    var roster = [["":""]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        // refresh tableview data
+        // pull info from singleton
+        
+        roster = AppData.mainData().roster
+        tableView.reloadData()
     }
     
     @IBAction func dismissVC(sender: AnyObject) {
@@ -37,15 +48,22 @@ class RosterTVC: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return roster.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("rosterCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("rosterCell", forIndexPath: indexPath) as PlayerCell
 
         // Configure the cell...
-
+        
+        let player = roster[indexPath.row]
+        
+        cell.playerNameLabel.text = player["playerName"]
+        cell.playerAgeLabel.text = player["age"]
+        cell.positionLabel.text = player["position"]
+        
+        
         return cell
     }
     
