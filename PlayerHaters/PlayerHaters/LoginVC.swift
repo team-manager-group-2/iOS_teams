@@ -22,6 +22,7 @@ class LoginVC: UIViewController {
         /////////
         /////////   SHIFT UI WITH KEYBOARD PRESENT
         /////////
+        
         var keyboardHeight: CGFloat = 0
         NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification!) -> Void in
             if let kbSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
@@ -47,12 +48,15 @@ class LoginVC: UIViewController {
 
     }  // end: viewDidLoad
 
+    
     /////////
     /////////   LOG IN / SIGN UP
     /////////
-    func checkField() {
-       
-        var fieldValues: [String] = [emailField.text,passwordField.text]
+    
+    var fieldValues: [String] = []
+    func checkFields(completion: () -> ()) {
+       // textfield validation
+        fieldValues = [emailField.text,passwordField.text]
         if find(fieldValues, "") != nil {
             // all fields are not filled in, present alert
             var alertViewController = UIAlertController(title: "Submission Error", message: "Please fill in all fields.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -61,20 +65,50 @@ class LoginVC: UIViewController {
             presentViewController(alertViewController, animated: true, completion: nil)
         } else {
             // all fields are filled in, check if user exists
-            
+      
+            completion()
+        
         }
-        
-        
+     
     }
-        // email / pw field validation
     
+    // sign up user
     @IBAction func signUp(sender: AnyObject) {
-//    sign up user
+
+        // check that fields are filled out
+        checkFields { () -> () in
+            
+            println("Sign up btn pressed, getting user token...")
+            
+            User.currentUser().getUserToken(self.emailField.text, andPassword: self.passwordField.text, andCompletion: { () -> () in
+                // fields are good, sign up user
+                println("User signed in, dismissing VC...")
+                
+                // dismiss view controller when finished
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            })
+
+        }
         
     }
 
+    // log in user
     @IBAction func logIn(sender: AnyObject) {
-//    log in user
+
+        // check that fields are filled out
+        checkFields { () -> () in
+            
+            println("Fields are good, logging in user...")
+            
+            User.currentUser().logInUser(self.emailField.text, andPassword: self.passwordField.text, andCompletion: { () -> () in
+                
+                println("User logged in succesfully, dismissing VC...")
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            })
+            
+        }
         
     }
     
