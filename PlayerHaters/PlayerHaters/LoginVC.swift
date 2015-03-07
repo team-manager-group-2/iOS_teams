@@ -50,20 +50,23 @@ class LoginVC: UIViewController {
     /////////
     /////////   LOG IN / SIGN UP
     /////////
-//    @IBAction func loginSignUp(sender: AnyObject) {
-//        // email / pw field validation
-//        var fieldValues: [String] = [emailField.text,passwordField.text]
-//        if find(fieldValues, "") != nil {
-//            // all fields are not filled in, present alert
-//            var alertViewController = UIAlertController(title: "Submission Error", message: "Please fill in all fields.", preferredStyle: UIAlertControllerStyle.Alert)
-//            var defaultAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-//            alertViewController.addAction(defaultAction)
-//            presentViewController(alertViewController, animated: true, completion: nil)
-//        } else {
-//            // all fields are filled in, check if user exists
-//
-//        }
-//    }  // end: field validation
+    func checkField() {
+       
+        var fieldValues: [String] = [emailField.text,passwordField.text]
+        if find(fieldValues, "") != nil {
+            // all fields are not filled in, present alert
+            var alertViewController = UIAlertController(title: "Submission Error", message: "Please fill in all fields.", preferredStyle: UIAlertControllerStyle.Alert)
+            var defaultAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertViewController.addAction(defaultAction)
+            presentViewController(alertViewController, animated: true, completion: nil)
+        } else {
+            // all fields are filled in, check if user exists
+            
+        }
+        
+        
+    }
+        // email / pw field validation
     
     @IBAction func signUp(sender: AnyObject) {
 //    sign up user
