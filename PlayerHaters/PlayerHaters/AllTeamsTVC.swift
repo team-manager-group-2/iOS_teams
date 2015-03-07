@@ -19,6 +19,30 @@ class AllTeamsTVC: UITableViewController {
         
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        checkIfLoggedIn()
+        
+    }
+    
+    func checkIfLoggedIn() {
+        
+        // check for existing token - move to VIEWDIDLOAD or ViewdidAppear?
+        if let token = User.currentUser().token {
+            println("User exists and is logged in with auth token: \(token)")
+            
+        } else {
+            
+            // go to LogInViewController
+            if let loginVC = storyboard?.instantiateViewControllerWithIdentifier("loginVC") as? LoginVC {
+                navigationController?.presentViewController(loginVC, animated: false, completion: nil)
+            }
+            
+        }
+
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
