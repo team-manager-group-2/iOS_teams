@@ -41,8 +41,21 @@ class AllTeamsTVC: UITableViewController {
             
         }
 
+    }
+    
+    @IBAction func logOut(sender: AnyObject) {
+        
+        // log out
+        User.currentUser().token = nil
+        User.currentUser().email = nil
+        
+        // go to LogInViewController
+        if let loginVC = storyboard?.instantiateViewControllerWithIdentifier("loginVC") as? LoginVC {
+            navigationController?.presentViewController(loginVC, animated: true, completion: nil)
+        }
         
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

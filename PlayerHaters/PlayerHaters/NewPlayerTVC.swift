@@ -9,15 +9,39 @@
 import UIKit
 
 class NewPlayerTVC: UITableViewController {
-
+    
+    @IBOutlet weak var playerNameField: UITextField!
+    @IBOutlet weak var parent1Field: UITextField!
+    @IBOutlet weak var parent2Field: UITextField!
+    @IBOutlet weak var positionField: UITextField!
+    @IBOutlet weak var birthdayPicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    
+    @IBAction func addPlayer(sender: AnyObject) {
+        
+        
+    }
+    
+    func checkFields() {
+        // textfield validation
+        var fieldValues: [String] = []
+        fieldValues = [playerNameField.text,parent1Field.text, positionField.text]
+        if find(fieldValues, "") != nil {
+            // all fields are not filled in, present alert
+            var alertViewController = UIAlertController(title: "Submission Error", message: "Please fill in all fields.", preferredStyle: UIAlertControllerStyle.Alert)
+            var defaultAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertViewController.addAction(defaultAction)
+            presentViewController(alertViewController, animated: true, completion: nil)
+        } else {
+            // all fields are filled in, check if user exists
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
