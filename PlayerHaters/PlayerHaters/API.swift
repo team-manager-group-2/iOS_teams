@@ -185,10 +185,10 @@ class User {
             
             println(responseInfo)
             
-            if let userInfo = responseInfo["user"] as? [String:String] {
+            if let userInfo = responseInfo["user"] as? [String:AnyObject] {
                 // set token
                 self.token = userInfo["authentication_token"] as String!
-                
+
                 // set email
                 self.email = userInfo["email"] as String!
              

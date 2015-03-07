@@ -14,9 +14,6 @@ class AllTeamsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        
         
     }
     
@@ -48,6 +45,9 @@ class AllTeamsTVC: UITableViewController {
         // log out
         User.currentUser().token = nil
         User.currentUser().email = nil
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("token")
         
         // go to LogInViewController
         if let loginVC = storyboard?.instantiateViewControllerWithIdentifier("loginVC") as? LoginVC {
@@ -94,7 +94,7 @@ class AllTeamsTVC: UITableViewController {
         
         let tabBarVC = self.storyboard?.instantiateViewControllerWithIdentifier("tabBarVC") as UITabBarController
         
-        self.navigationController?.pushViewController(tabBarVC, animated: true)
+        self.navigationController?.presentViewController(tabBarVC, animated: true, completion: nil)
         
     }
     

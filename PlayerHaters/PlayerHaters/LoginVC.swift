@@ -23,13 +23,14 @@ class LoginVC: UIViewController {
         /////////   SHIFT UI WITH KEYBOARD PRESENT
         /////////
         
-        var keyboardHeight: CGFloat = 0
+        var originalConstraint: CGFloat = self.loginBottomConstraint.constant
         NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification!) -> Void in
             if let kbSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
                 // move constraint
-                keyboardHeight = kbSize.height
-                self.loginBottomConstraint.constant += keyboardHeight
-                self.signUpConstraint.constant += keyboardHeight
+                println("keyboard height: \(kbSize.height)")
+                let keyboardHeight = kbSize.height
+                self.loginBottomConstraint.constant = keyboardHeight
+                self.signUpConstraint.constant = keyboardHeight
 
                 // animate constraint
                 self.view.layoutIfNeeded()
@@ -38,8 +39,8 @@ class LoginVC: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillHideNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
             // move constraint back
-            self.loginBottomConstraint.constant -= keyboardHeight
-            self.signUpConstraint.constant -= keyboardHeight
+            self.loginBottomConstraint.constant = originalConstraint
+            self.signUpConstraint.constant = originalConstraint
 
             // animate constraint
             self.view.layoutIfNeeded()

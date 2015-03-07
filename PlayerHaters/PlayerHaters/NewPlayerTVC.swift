@@ -34,7 +34,7 @@ class NewPlayerTVC: UITableViewController {
         fieldValues = [playerNameField.text,parent1Field.text, positionField.text]
         if find(fieldValues, "") != nil {
             // all fields are not filled in, present alert
-            var alertViewController = UIAlertController(title: "Submission Error", message: "Please fill in all fields.", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertViewController = UIAlertController(title: "Error", message: "Please fill in all required fields.", preferredStyle: UIAlertControllerStyle.Alert)
             var defaultAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alertViewController.addAction(defaultAction)
             presentViewController(alertViewController, animated: true, completion: nil)

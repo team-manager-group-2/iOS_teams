@@ -13,20 +13,13 @@ class RosterTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        // set navbar title to team name
-//        self.navigationController?.
-        
-        // add plus btn to navbar
-        var addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addPlayer")
-//        navigationItem.rightBarButtonItem = addButton
-        navigationController!.navigationItem.rightBarButtonItem = addButton
     }
     
-    func addPlayer() {
-        let nPTVC = self.storyboard?.instantiateViewControllerWithIdentifier("newPlayerTVC") as NewPlayerTVC
-        self.navigationController?.pushViewController(nPTVC, animated: true)
+    @IBAction func dismissVC(sender: AnyObject) {
+        // dismiss tabbarcontroller and go back to all teams
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
