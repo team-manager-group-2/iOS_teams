@@ -10,6 +10,8 @@ import UIKit
 
 class ScheduleTVC: UITableViewController {
 
+    var schedule = [["":""]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,12 @@ class ScheduleTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        schedule = AppData.mainData().schedule
+        tableView.reloadData()
     }
     
     @IBAction func dismissVC(sender: AnyObject) {
@@ -33,24 +41,38 @@ class ScheduleTVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return schedule.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("scheduleCell", forIndexPath: indexPath) as ScheduleCell
 
         // Configure the cell...
-
+        
+        let event = schedule[indexPath.row]
+        
+        let type = event["type"]
+        let status = event["status"]
+        let time = event["time"]
+        
+        cell.eventStatus.text = status
+        cell.eventTime.text = time
+        cell.eventType.text = type
+        
+        if status == "cancelled" {
+            cell.eventStatus.textColor = UIColor.redColor()
+        }
+        
         return cell
     }
     

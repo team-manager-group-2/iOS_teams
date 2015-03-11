@@ -17,33 +17,33 @@ class AppData: NSObject {
     var allTeams = [
         
         [
-            "teamName":"MyCouchPullsOutButIDon't",
-            "sport":"Playin'",
-            "coachName":"Ole' Catfish Andy",
+            "teamName":"Dawgs",
+            "sport":"Football",
+            "coachName":"Mark Richt",
+            "homeField":"Athens"
+        ],
+        [
+            "teamName":"Yellow Jackets",
+            "sport":"Coding",
+            "coachName":"Billy Madison",
             "homeField":"Decatur"
         ],
         [
-            "teamName":"BeatsByRay",
-            "sport":"Playin'",
-            "coachName":"Ole' Catfish Andy",
-            "homeField":"Decatur"
+            "teamName":"Braves",
+            "sport":"Baseball",
+            "coachName":"Andy Doyle",
+            "homeField":"Atlanta"
         ],
         [
-            "teamName":"StitchedBalls",
-            "sport":"Playin'",
-            "coachName":"Ole' Catfish Andy",
-            "homeField":"Decatur"
+            "teamName":"Hornets",
+            "sport":"Hockey",
+            "coachName":"Catfish Andy",
+            "homeField":"Charlotte"
         ],
         [
-            "teamName":"MyCouchPullsOutButIDon't",
-            "sport":"Playin'",
-            "coachName":"Ole' Catfish Andy",
-            "homeField":"Decatur"
-        ],
-        [
-            "teamName":"MyCouchPullsOutButIDon't",
-            "sport":"Playin'",
-            "coachName":"Ole' Catfish Andy",
+            "teamName":"Steelers",
+            "sport":"Baseball",
+            "coachName":"Thomas Hill",
             "homeField":"Decatur"
         ]
         
@@ -52,7 +52,7 @@ class AppData: NSObject {
     var roster = [
         
         [
-            "playerName":"Catfish Andy",
+            "playerName":"Ole' Catfish Andy",
             "parent1":"Cat",
             "parent2":"Fish",
             "position":"Catcher",
@@ -72,6 +72,32 @@ class AppData: NSObject {
             "position":"Owner",
             "age":"27"
         ]
+    ]
+    
+    var schedule = [
+        
+        [
+            "status":"active",
+            "type":"Game",
+            "opponent":"Jo",
+            "location":"Chastain Field",
+            "time":"4/20/15, 5:00pm"
+        ],
+        [
+            "status":"cancelled",
+            "type":"Practice",
+            "opponent":"UGA",
+            "location":"Falcon's Stadium",
+            "time":"4/13/15, 3:00pm"
+        ],
+        [
+            "status":"active",
+            "type":"Game",
+            "opponent":"Kentucky",
+            "location":"Around Back",
+            "time":"4/5/15, 12:00pm"
+        ],
+        
     ]
 
     

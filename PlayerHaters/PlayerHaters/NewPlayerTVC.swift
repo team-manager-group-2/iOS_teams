@@ -22,46 +22,58 @@ class NewPlayerTVC: UITableViewController {
 
     }
     
-    func dateToAge() {
+    
+    func dateToAge() -> NSInteger {
+        // birthday picker converted to age
         
-        let birthday = birthdayPicker.date
-//        let age = birthday.stringFromDate
+        var birthday: NSDate = birthdayPicker.date
+        
+        var now = NSDate()
+        
+        var currentCalender = NSCalendar.currentCalendar()
+        
+        let ageCompenents: NSDateComponents = currentCalender.components(NSCalendarUnit.YearCalendarUnit, fromDate: birthday, toDate: now, options: NSCalendarOptions.allZeros)
+        
+        
+        let age: NSInteger = ageCompenents.year
+        
+        return age
+        
     }
     
     
     @IBAction func addPlayer(sender: AnyObject) {
         
-        // add new player
-        
-        let newPlayer = [
-            "playerName":playerNameField.text,
-            "parent1":parent1Field.text,
-            "parent2":parent2Field.text,
-            "position":positionField.text,
-            "age":"12"
-            ] as [String:String]
-        
-        AppData.mainData().roster.append(newPlayer)
-        // new game is saved, go back to allTeamsTVC
-        navigationController?.popViewControllerAnimated(true)
-        
-    }
-    
-    func checkFields() {
         // textfield validation
         var fieldValues: [String] = []
         fieldValues = [playerNameField.text,parent1Field.text, positionField.text]
         if find(fieldValues, "") != nil {
             // all fields are not filled in, present alert
-            var alertViewController = UIAlertController(title: "Error", message: "Please fill in all required fields.", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertViewController = UIAlertController(title: "Great Scott!", message: "Please fill in all required fields.", preferredStyle: UIAlertControllerStyle.Alert)
             var defaultAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alertViewController.addAction(defaultAction)
             presentViewController(alertViewController, animated: true, completion: nil)
         } else {
-            // all fields are filled in, check if user exists
+            
+            // add new player
+            
+            let newPlayer = [
+                "playerName":playerNameField.text,
+                "parent1":parent1Field.text,
+                "parent2":parent2Field.text,
+                "position":positionField.text,
+                "age":"age: \(String(dateToAge()))"
+                ] as [String:String]
+            
+            AppData.mainData().roster.append(newPlayer)
+            // new game is saved, go back to allTeamsTVC
+            navigationController?.popViewControllerAnimated(true)
             
         }
+
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

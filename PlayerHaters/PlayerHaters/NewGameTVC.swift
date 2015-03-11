@@ -30,13 +30,57 @@ class NewGameTVC: UITableViewController {
     
     @IBAction func gameStatusChanged(sender: UISwitch) {
         
+        if sender.on {
+            gameStatusLabel.text = "Active"
+        } else {
+            gameStatusLabel.text = "Cancelled"
+        }
         
     }
     
     @IBAction func addEvent(sender: AnyObject) {
+        
+        // add the event to the singleton
+        var eventType = ""
+        switch eventTypeControl.selectedSegmentIndex {
+        case 0:
+            eventType = eventTypeControl.titleForSegmentAtIndex(0)!
+        case 1:
+            eventType = eventTypeControl.titleForSegmentAtIndex(1)!
+        default:
+            println("?")
+        }
+        
+        let eventDate = dateToString()
+        
+//        let newEvent = [
+//            "status" : gameStatusLabel.text,
+//            "type" : eventType,
+//            "opponent" : opponentField.text,
+//            "location" : locationField.text,
+//            "time" : eventDate
+//        ] as [String:String]
+        
+
+//        AppData.mainData().schedule.append(newEvent)
+        navigationController?.popViewControllerAnimated(true)
+        
     }
     
-    
+    func dateToString() -> String {
+        
+        let date: NSDate = eventTimePicker.date
+        
+        let dateFormatter = NSDateFormatter()
+        
+        var theDateFormat = NSDateFormatterStyle.ShortStyle
+        let theTimeFormat = NSDateFormatterStyle.ShortStyle
+        
+        dateFormatter.dateStyle = theDateFormat
+        dateFormatter.timeStyle = theTimeFormat
+        
+        return dateFormatter.stringFromDate(date)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

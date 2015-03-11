@@ -14,6 +14,10 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var signUpConstraint: NSLayoutConstraint!
+    @IBOutlet weak var brandTopLabel: UILabel!
+    @IBOutlet weak var brandBottomLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var brandConstraint: NSLayoutConstraint!
 
     
     override func viewDidLoad() {
@@ -24,6 +28,7 @@ class LoginVC: UIViewController {
         /////////
         
         var originalConstraint: CGFloat = self.loginBottomConstraint.constant
+        var brandOriginalConstraint: CGFloat = self.brandConstraint.constant
         NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification!) -> Void in
             if let kbSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
                 // move constraint
@@ -32,6 +37,11 @@ class LoginVC: UIViewController {
                 self.loginBottomConstraint.constant = keyboardHeight
                 self.signUpConstraint.constant = keyboardHeight
 
+                self.brandBottomLabel.hidden = true
+                self.brandTopLabel.hidden = true
+                
+                self.brandConstraint.constant = brandOriginalConstraint + 95
+                
                 // animate constraint
                 self.view.layoutIfNeeded()
             }
@@ -42,6 +52,11 @@ class LoginVC: UIViewController {
             self.loginBottomConstraint.constant = originalConstraint
             self.signUpConstraint.constant = originalConstraint
 
+            self.brandBottomLabel.hidden = false
+            self.brandTopLabel.hidden = false
+            
+            self.brandConstraint.constant = brandOriginalConstraint
+            
             // animate constraint
             self.view.layoutIfNeeded()
         } // end: keyboard shift

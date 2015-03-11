@@ -31,6 +31,10 @@ class APIRequest {
         
         request.HTTPMethod = options["method"] as String
 
+        if let token = User.currentUser().token {
+            request.setValue(token, forHTTPHeaderField: "authentication-token")
+        }
+
         
         switch request.HTTPMethod {
             
@@ -139,7 +143,7 @@ class User {
             "method" : "POST",
             "body" : [
             
-                "user" : [ "email" : email, "password" : password ]
+                "user" : [ "email" : email, "password" : password, "type" : "Manager" ]
             
             ]
             
@@ -208,141 +212,45 @@ class User {
     
     
     ///////////
-    /////////// REQUEST NEW GAME
+    /////////// CREATE NEW TEAM
     ///////////
     
-    // Join GAME METHOD
-//    func requestNewGame(completion: () -> ()) {
-//        
-//        var options: [String:AnyObject] = [
-//            
-//            "endpoint" : "games",
-//            "method" : "PUT",
-//            "body" : [
-//                "auth_token" : token!
-//            ]
-//            
-//        ]
-//        
-//        APIRequest.requestWithOptions(options, andCompletion: { (responseInfo) -> () in
-//            // do something after request is done
-//            
-//            println(responseInfo)
-//            //create new game model and set data to response
-//            
-//            let newGame = GameModel()
-////            newGame.boardSquares = responseInfo[]
-//            
-//            if let game = responseInfo["game"] as? [String:AnyObject] {
+
+    func createNewTeam(teamName: String, andSport sport: String, andCoachName coachName: String, andHomeField homeField: String, andCompletion completion: () -> ()) {
+        
+        println(teamName, sport)
+        
+        var options: [String:AnyObject] = [
+            
+            "endpoint" : "/teams",
+            "method" : "POST",
+            "body" : [
+                
+                "team" : [ "name" : teamName, "sport" : sport, "coach_name" : coachName, "homefield" : homeField ]
+                
+            ]
+            
+        ]
+        
+        println(options)
+        
+        APIRequest.requestWithOptions(options, andCompletion: { (responseInfo) -> () in
+            // do something after request is done
+            
+            println("response: \(responseInfo)")
+            
+//            if let userInfo = responseInfo["user"] as? [String:AnyObject] {
+//                // set token
+//                self.token = userInfo["authentication_token"] as String!
 //                
-//                if let board = game["board"] as? [[Int]] {
-//            
-//                    newGame.boardSquares = board
-//                    
-//                    DataModel.mainData().currentGame = newGame
-//                    
-//                    DataModel.mainData().allGames.append(newGame)   // necessary?
-//                    
-//                    completion()
-//                    
-//                }
-//                
-//            }
-//            
-//        })
-//        
-//        
-//    }
-    
-    ///////////
-    /////////// REQUEST GAME LIST
-    ///////////
-    
-//    func requestGameList(completion: () -> ()) {
-//        
-//        println("request game list running...")
-//        
-//        var options: [String:AnyObject] = [
-//            
-//            "endpoint" : "games",
-//            "method" : "GET",
-//            "body" : [
-//                "auth_token" : token!
-//            ]
-//            
-//        ]
-//        
-//        APIRequest.requestWithOptions(options, andCompletion: { (responseInfo) -> () in
-//            // do something after request is done
-//            
-////            println(" request game list in api running: \(responseInfo)")
-//            
-//            let games = responseInfo["game"] as [[String:AnyObject]]
-//            
-//            for eachGame in games {
-//                println(eachGame)
-//                
-//                let game = GameModel()
-//                
-//                ///////// GAME
-//                let gm = eachGame["game"] as [String:AnyObject]
-////                println(gm)
-//                let board = gm["board"] as [[Int]]
-////                println(board)
-//                let id = gm["id"] as Int
-////                println(id)
-//                let lastUpdate: String? = gm["updated_at"] as? String
-////                println(lastUpdate)
-//                let turnCount: Int? = gm["turn_counter"] as? Int
-////                println(turnCount)
-//                let isFinished: Bool? = gm["finished"] as? Bool
-////                println(isFinished)
-//                
-//                game.boardSquares = board
-//                game.gameID = id
-//                game.lastUpdate = lastUpdate
-//                game.turnCount = turnCount
-//                game.isFinished = isFinished
-//                
-//                game.players = []
-//                
-//                // ADD PLAYERS TO GAME
-//                // PLAYER 2 - is this right? doubt it.
-//                if let p2 = eachGame["player2"] as? [String:AnyObject] {
-//                    //                    println(p2)
-//
-//                    let playerID = p2["id"] as Int
-//                    let playerUsername = p2["username"] as String
-//                    let direction = -1
-//                    let player = Player(direction: direction)
-//                    player.playerID = playerID
-//                    player.playerUsername = playerUsername
-//                    game.players.append(player)
-//
-//                }
-//                // PLAYER 1
-//                if let p1 = eachGame["player1"] as? [String:AnyObject] {
-//                    //                    println(p2)
-//                    
-//                    let playerID = p1["id"] as Int
-//                    let playerUsername = p1["username"] as String
-//                    let direction = 1
-//                    let player = Player(direction: direction)
-//                    player.playerID = playerID
-//                    player.playerUsername = playerUsername
-//                    game.players.append(player)
-//
-//                }
-//
-//                // ADD GAME TO SINGLETON ARRAY
-//                DataModel.mainData().allGames.append(game)
+//                // set email
+//                self.email = userInfo["email"] as String!
 //                
 //                completion()
-//                
 //            }
-//            
-//        })
-//        
-//    }
+            
+        })
+        
+    }
     
 }

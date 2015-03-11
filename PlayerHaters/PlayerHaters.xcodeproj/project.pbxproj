@@ -24,6 +24,8 @@
 		D85FBA9C1AAB9A520028710E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FBA9B1AAB9A520028710E /* PlayerCell.swift */; };
 		D89A52C51AAAC2BE0077ABA0 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A52C41AAAC2BE0077ABA0 /* AppData.swift */; };
 		D89A52C71AAB46C20077ABA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A52C61AAB46C20077ABA0 /* API.swift */; };
+		D8D01F241AAC9F5200CC58A6 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D01F231AAC9F5200CC58A6 /* ScheduleCell.swift */; };
+		D8D01F261AACCDF500CC58A6 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D01F251AACCDF500CC58A6 /* CustomNavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		D85FBA9B1AAB9A520028710E /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		D89A52C41AAAC2BE0077ABA0 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		D89A52C61AAB46C20077ABA0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D8D01F231AAC9F5200CC58A6 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		D8D01F251AACCDF500CC58A6 /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 			children = (
 				D80E30D11AAA9C5200FDB4B9 /* CustomButtonOrView.swift */,
 				D85FBA9B1AAB9A520028710E /* PlayerCell.swift */,
+				D8D01F231AAC9F5200CC58A6 /* ScheduleCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				D80E30CB1AAA967000FDB4B9 /* PlayerDetailTVC.swift */,
 				D80E30CD1AAA969700FDB4B9 /* ScheduleTVC.swift */,
 				D85FBA991AAB76E00028710E /* NewGameTVC.swift */,
+				D8D01F251AACCDF500CC58A6 /* CustomNavController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -279,8 +285,10 @@
 				D80E30CA1AAA965900FDB4B9 /* NewPlayerTVC.swift in Sources */,
 				D80E30D01AAA99A800FDB4B9 /* LoginVC.swift in Sources */,
 				D80E30CE1AAA969700FDB4B9 /* ScheduleTVC.swift in Sources */,
+				D8D01F241AAC9F5200CC58A6 /* ScheduleCell.swift in Sources */,
 				D80E309F1AAA91E800FDB4B9 /* AppDelegate.swift in Sources */,
 				D89A52C51AAAC2BE0077ABA0 /* AppData.swift in Sources */,
+				D8D01F261AACCDF500CC58A6 /* CustomNavController.swift in Sources */,
 				D85FBA9C1AAB9A520028710E /* PlayerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

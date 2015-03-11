@@ -29,7 +29,15 @@ class NewTeamTVC: UITableViewController {
             "homeField":homeFieldField.text
         ] as [String:String]
         
+
+        User.currentUser().createNewTeam(teamNameField.text, andSport: sportField.text, andCoachName: coachNameField.text, andHomeField: homeFieldField.text) { () -> () in
+            println("Creating new team...")
+
+            
+        }
+
         AppData.mainData().allTeams.append(newTeam)
+        
         // new game is saved, go back to allTeamsTVC
         navigationController?.popViewControllerAnimated(true)
     }
